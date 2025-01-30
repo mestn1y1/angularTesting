@@ -7,9 +7,13 @@
   <p [ngClass]="{ active: isActive, disabled: isDisabled }">
     Here used ngClass
   </p>
-
-  <!-- <button [disabled]="!isEnabled">Click me</button>
-    -->
+  <!-- 
+  <button [disabled]="!isEnabled">Click me</button>
   <div class="event-exemple" [ngClass]="{ clicked: isClickedState }"></div>
-  <button (click)="toggleState()">Change state</button>
+  <button (click)="toggleState()">Change state</button> -->
+
+  <input type="text" [(ngModel)]="inputText" />
+  <p>{{ inputText }}</p>
+  <p>{{ childMessage }}</p>
+  <button (click)="sendMessageToParent()">Send message to parent</button>
 </div>

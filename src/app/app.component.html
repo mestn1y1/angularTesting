@@ -1,3 +1,7 @@
-
 <p>This app component</p>
-<app-test></app-test> <router-outlet></router-outlet>
+<p>{{ messageFromChild }}</p>
+<app-test
+  [childMessage]="messageFromParent"
+  (messageFromChild)="getMessageFromChild($event)"
+></app-test>
+<router-outlet></router-outlet>

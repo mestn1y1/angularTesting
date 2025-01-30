@@ -1,0 +1,40 @@
+div {
+  background-color: antiquewhite;
+  text-align: center;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+button {
+  background: rgb(202, 160, 241);
+  padding: 12px 10px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: rgb(127, 56, 221);
+  border: none;
+  color: white;
+}
+
+.active {
+  background-color: white;
+}
+
+.disabled {
+  background-color: white;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.event-exemple {
+  margin: 0 auto;
+  margin-bottom: 29px;
+  width: 100px;
+  height: 100px;
+  background: rgb(212, 185, 238);
+}
+
+.clicked {
+  background: black;
+}

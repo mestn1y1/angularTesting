@@ -1,0 +1,15 @@
+<div>
+  <p>This test component</p>
+  <p>{{ title }}</p>
+  <p>{{ getFullName() }}</p>
+
+  <p [ngStyle]="{ color: 'red' }">Here used ngStyle</p>
+  <p [ngClass]="{ active: isActive, disabled: isDisabled }">
+    Here used ngClass
+  </p>
+
+  <!-- <button [disabled]="!isEnabled">Click me</button>
+    -->
+  <div class="event-exemple" [ngClass]="{ clicked: isClickedState }"></div>
+  <button (click)="toggleState()">Change state</button>
+</div>

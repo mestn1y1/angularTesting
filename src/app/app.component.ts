@@ -12,4 +12,9 @@ import { TestComponent } from './components/test/test.component';
 })
 export class AppComponent {
   title = 'Angular-test-2';
+  messageFromParent = 'I am your father';
+  messageFromChild = '';
+  getMessageFromChild(message: string) {
+    this.messageFromChild = message;
+  }
 }

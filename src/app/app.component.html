@@ -1,7 +1,20 @@
-<p>This app component</p>
-<p>{{ messageFromChild }}</p>
-<app-test
-  [childMessage]="messageFromParent"
-  (messageFromChild)="getMessageFromChild($event)"
-></app-test>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <div class="side-bar-title">
+      <h2>Categories</h2>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/angular">Angular</a>
+      <a mat-list-item routerLink="/typescript">TypeScript</a>
+      <a mat-list-item routerLink="/javascript">JavaScript</a>
+      <a mat-list-item routerLink="/rxjs">RxJs</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <a mat-list-item routerLink="/home">Interview preparation</a>
+    </mat-toolbar>
+    <main><router-outlet></router-outlet></main
+  ></mat-sidenav-content>
+</mat-sidenav-container>

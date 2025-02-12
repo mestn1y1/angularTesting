@@ -1,19 +1,166 @@
-<div>
+<div class="generalContainer">
   <p>This test component</p>
-  <p>{{ title }}</p>
+  <div class="container">
+    <form [formGroup]="complexForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" formControlName="name" />
+        <div *ngIf="name?.invalid && name?.touched" class="error">
+          This value is Invalid
+        </div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" formControlName="email" />
+        <div *ngIf="email?.invalid && email?.touched" class="error">
+          This value is Invalid
+        </div>
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" formControlName="age" />
+        <div *ngIf="age?.invalid && age?.touched" class="error">
+          This value is Invalid
+        </div>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" />
+        <div *ngIf="password?.invalid && password?.touched" class="error">
+          This value is Invalid
+        </div>
+      </div>
+      <div>
+        <label for="consent">I agree on for some condition</label>
+        <input type="checkbox" formControlName="consent" />
+        <div *ngIf="consent?.invalid && consent?.touched" class="error">
+          This value is Invalid
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!complexForm.valid">Submit</button>
+    </form>
+  </div>
+
+  <!-- <div class="todo-container">
+    <input
+      [(ngModel)]="newTask"
+      placeholder="Add new task ..."
+      class="todo-input"
+    />
+    <button (click)="addTask()" class="add-btn">Add</button>
+
+    <ul class="todo-list">
+      <li *ngFor="let task of tasks; let i = index" class="todo-item">
+        {{ task }}
+        <button (click)="removeTask(i)" class="remove-btn">Remove</button>
+      </li>
+    </ul> -->
+</div>
+
+<!-- <p>{{ title }}</p>
   <p>{{ getFullName() }}</p>
 
   <p [ngStyle]="{ color: 'red' }">Here used ngStyle</p>
   <p [ngClass]="{ active: isActive, disabled: isDisabled }">
     Here used ngClass
-  </p>
-  <!-- 
+  </p> -->
+<!--
   <button [disabled]="!isEnabled">Click me</button>
   <div class="event-exemple" [ngClass]="{ clicked: isClickedState }"></div>
   <button (click)="toggleState()">Change state</button> -->
 
-  <input type="text" [(ngModel)]="inputText" />
+<!-- ---------------------------------------------OLD SYNTAX---------------------------------------------- -->
+
+<!-- NgIf -->
+
+<!-- <p *ngIf="isClickedState; else notClickedState">Button is clicked</p>
+<ng-template #notClickedState>
+  <p>Butoon is still not ckiked</p>
+</ng-template>
+<button (click)="toggleState()">Switch state</button> -->
+<!--  -->
+
+<!-- NgFor -->
+
+<!--
+<ul>
+  <li *ngFor="let user of users; index as i">{{ i + 1 }}: {{ user }}</li>
+</ul> -->
+
+<!--  -->
+
+<!-- ngSwitch -->
+
+<!-- <div [ngSwitch]="appState">
+    <p *ngSwitchCase="'active'">App active</p>
+    <p *ngSwitchCase="'paused'">App paused</p>
+    <p *ngSwitchCase="'stopped'">App stopped</p>
+    <p *ngSwitchDefault>State of App empty</p>
+  </div> -->
+
+<!--  -->
+
+<!-- ------------------------------------------------------------------------------------------- -->
+
+<!---------------------------------------------------- New syntax--------------------------------- -->
+
+<!-- @if -->
+<!-- @if (isClickedState){
+  <p>Button is clicked</p>
+  }@else {
+  <p>Button is not clicked</p>
+  }
+  <button (click)="toggleState()">Switch state</button> -->
+
+<!-- @For -->
+<!-- <ul>
+    @for(item of items;track item.id; let idx=$index,e=$even){
+    <li>Fruit #{{ idx + 1 }}: {{ item.name }}</li>
+    }@empty {
+    <li>There are not items</li>
+    }
+  </ul> -->
+
+<!-- @Switch
+  @switch (appState){ @case('active'){
+  <p>App active</p>
+  } @case('paused'){
+  <p>App paused</p>
+  } @default{
+  <p>State of app emty</p>
+  } } -->
+
+<!-- Show current date in format mm/dd/yyyy -->
+<!-- <p>{{ today | date : "shortDate" }}</p> -->
+
+<!-- Transform uppercase -->
+<!-- <p>{{ "hello world" | uppercase }}</p> -->
+
+<!-- Transform lowercase -->
+<!-- <p>{{ "HELLO WORLD" | lowercase }}</p> -->
+
+<!-- Show number 1500.5 in format vallet, example $1,500,50 -->
+<!-- <p>{{ 1500.5 | currency }}</p> -->
+
+<!-- Format number 1.23456789 to '1.2345-6(4-6 this count number after coma)' -->
+<!-- <p>{{ 1.23456789 | number }}</p> -->
+
+<!-- Show 0.5 as like 50% -->
+<!-- <p>{{ 0.5 | percent }}</p> -->
+
+<!-- Cut substring with position 1 to 5 (not vklyuchno) -->
+<!-- <p>{{ "Hello world" | slice : 0 : 5 }}</p> -->
+<!-- show "ello" -->
+
+<!-- Show object in JSON format -->
+<!-- <p>{{ { name: "John", age: 30 } | json }}</p> -->
+
+<!-- Use pipe 'truncate' for slice some long text -->
+<!-- <p>{{ "Long text ,which needed to cutting " | trancate : 17 }}</p> -->
+
+<!-- <input type="text" [(ngModel)]="inputText" />
   <p>{{ inputText }}</p>
   <p>{{ childMessage }}</p>
   <button (click)="sendMessageToParent()">Send message to parent</button>
-</div>
+  <p appHighlight [highlightColor]="'blue'">Hover mouse on me</p> -->

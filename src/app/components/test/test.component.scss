@@ -1,4 +1,4 @@
-div {
+.generalContainer {
   background-color: antiquewhite;
   text-align: center;
   height: 100vh;
@@ -37,4 +37,14 @@ button:hover {
 
 .clicked {
   background: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+div {
+  margin-bottom: 20px;
 }
